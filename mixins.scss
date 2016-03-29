@@ -1,0 +1,144 @@
+/* 隐藏文本
+   ========================================================================== */
+@mixin o-hide-text{
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+/* Usage */
+//.logo{
+//    background: url("");
+//    height:100px;
+//    width:200px;
+//    @include o-hide-text;
+//}
+
+/* 薄白线模拟凸版印刷
+   ========================================================================== */
+@mixin o-letterpress($opacity){
+    text-shadow:white($opacity) 0 1px 0;
+}
+
+/* css3增加前缀
+   ========================================================================== */
+@mixin o-css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+/* Usage */
+//button{
+//    @include o-css3-prefix(border-radius,5px);
+//}
+
+/* 背景渐变
+   ========================================================================== */
+@mixin o-background-gradient($startColor,$endColor) {
+    background-color: $startColor;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+    background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+    background-image:     -ms-linear-gradient(top, $startColor, $endColor);
+    background-image:      -o-linear-gradient(top, $startColor, $endColor);
+    background-image:         linear-gradient(top, $startColor, $endColor);
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}
+//注:$startColor为渐变开始颜色,$endColor为渐变结束颜色
+/* Usage */
+//div{
+//    @include o-background-gradient(#fff,#000);
+//}
+
+/* 横向导航列表
+   ========================================================================== */
+@mixin o-nav-list {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    > li{
+        display:block;
+        float:left;
+        &:last-child{
+            margin-right:0px;
+        }
+    }
+}
+/* Usage */
+//ul{
+//    @include o-nav-list;
+//}
+
+/* 文本超过宽度时，显示省略号
+   ========================================================================== */
+@mixin o-ell() {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* Usage */
+//p{
+//    @include o-ell;
+//}
+
+/* 清除浮动
+   ========================================================================== */
+@mixin o-clearfix {
+    &:after {
+        clear: both;
+        content: '.';
+        display: block;
+        height: 0;
+        line-height: 0;
+        overflow: hidden;
+    }
+    *height: 1%;
+}
+
+/* css箭头
+   ========================================================================== */
+@mixin o-arrow($direction,
+$size,
+$color) {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-width: $size;
+    cursor: pointer;
+    @if $direction == top {
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent $color transparent;
+        border-top: none;
+    }
+    @else if $direction == bottom {
+        border-style: solid dashed dashed dashed;
+        border-color: $color transparent transparent transparent;
+        border-bottom: none;
+    }
+    @else if $direction == right {
+        border-style: dashed dashed dashed solid;
+        border-color: transparent transparent transparent $color;
+        border-right: none;
+    }
+    @else if $direction == left {
+        border-style: dashed solid dashed dashed;
+        border-color: transparent $color transparent transparent;
+        border-left: none;
+    }
+}
+//注意：$direction为方向，$size为大小，$color为颜色
+
+/* 最小高度
+   ========================================================================== */
+@mixin o-min-height($min-height) {
+    min-height: $min-height;
+    height: auto !important;
+    height: $min-height;
+}
+//注意：IE6不支持min-height
