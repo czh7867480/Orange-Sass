@@ -142,3 +142,35 @@ $color) {
     height: $min-height;
 }
 //注意：IE6不支持min-height
+
+/* 链接伪类
+   ========================================================================== */
+@mixin o-linx ($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;   
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+/* Usage */
+//@include o-linx(white, blue, green, red);
+
+/* 跨浏览器的透明度
+   ========================================================================== */
+@mixin o-transparent($opacity){
+    filter: alpha(opacity=$opacity*100);
+    -khtml-opacity: $opacity;
+    -moz-opacity: $opacity;
+    opacity: $opacity;
+}
+//$opacity值为0~1的小数
+/* Usage */
+//div{@include o-transparent(0.4)};
+
