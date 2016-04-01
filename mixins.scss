@@ -74,11 +74,13 @@
 
 /* 文本超过宽度时，显示省略号
    ========================================================================== */
-@mixin o-ell() {
-    overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
+@mixin o-ell($width) {
+    width: $width;
     white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis; /* Required for IE8 */
+    -o-text-overflow: ellipsis; /* Required for Opera */
+    text-overflow: ellipsis;
 }
 /* Usage */
 //p{
@@ -174,3 +176,63 @@ $color) {
 /* Usage */
 //div{@include o-transparent(0.4)};
 
+/* 元素不可用,鼠标滑过它时不显示小手。
+   ========================================================================== */
+@mixin o-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* 隐藏元素
+   ========================================================================== */
+@mixin o-visually-hidden {
+    position: absolute;
+    width: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    height: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;    
+}
+//如果设置了display: none，那么元素对于屏幕和搜索引擎来说都是不可见的。
+
+/* 文本移出盒模型
+   ========================================================================== */
+@mixin o-ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+//图片替换技术移出文本通常使用position: absolute; left: -9999px;会导致浏览器渲染时间加长。
+
+/* 预防字符串被容器截断
+   ========================================================================== */
+@mixin o-break {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+/* 元素定位
+   ========================================================================== */
+@mixin o-placement($type,$top, $right, $bottom, $left) {
+    position: $type;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+/* Usage */
+//.my-element{@include o-placement(relative,10px,20px,30px,40px)}
+
+/* rem和px的转换
+   ========================================================================== */
+@mixin o-px-rem($pxValue){
+    $remValue: ($pxValue / 10);
+    font-size: ${pxValue}px;
+    font-size: ${remValue}rem;
+}

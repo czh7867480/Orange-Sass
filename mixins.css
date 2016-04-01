@@ -1,32 +1,51 @@
-@charset "UTF-8";
-/* 隐藏文本
-   ========================================================================== */
-/* Usage */
-/* 薄白线模拟凸版印刷
-   ========================================================================== */
-/* css3增加前缀
-   ========================================================================== */
-/* Usage */
-/* 背景渐变
-   ========================================================================== */
-/* Usage */
-/* 横向导航列表
-   ========================================================================== */
-/* Usage */
-/* 文本超过宽度时，显示省略号
-   ========================================================================== */
-/* Usage */
-/* 清除浮动
-   ========================================================================== */
-/* css箭头
-   ========================================================================== */
-/* 最小高度
-   ========================================================================== */
-/* 链接伪类
-   ========================================================================== */
-/* Usage */
-/* 跨浏览器的透明度
-   ========================================================================== */
-/* Usage */
+/*
+Error: Invalid CSS after "    font-size: ": expected expression (e.g. 1px, bold), was "${pxValue}px;"
+        on line 236 of D:\Orange Sass\lib\mixins.scss
 
-/*# sourceMappingURL=mixins.css.map */
+231: 
+232: /* rem和px的转换
+233:    ========================================================================== *\/
+234: @mixin o-px-rem($pxValue){
+235:     $remValue: ($pxValue / 10);
+236:     font-size: ${pxValue}px;
+237:     font-size: ${remValue}rem;
+238: }
+
+Backtrace:
+D:\Orange Sass\lib\mixins.scss:236
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/lexer.rb:220:in `expected!'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/parser.rb:573:in `assert_expr'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/parser.rb:62:in `parse'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1027:in `sass_script'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:880:in `value!'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:753:in `block in try_declaration'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1141:in `call'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1141:in `rethrow'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:766:in `try_declaration'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:696:in `declaration_or_ruleset'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:661:in `block_child'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:653:in `block_contents'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:642:in `block'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:231:in `mixin_directive'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:219:in `special_directive'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:194:in `directive'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:660:in `block_child'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:653:in `block_contents'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:117:in `stylesheet'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:42:in `parse'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:393:in `_to_tree'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+D:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+D:/Program Files (x86)/Koala/bin/sass:18:in `load'
+D:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"    font-size: \": expected expression (e.g. 1px, bold), was \"${pxValue}px;\"\A         on line 236 of D:\Orange Sass\lib\mixins.scss\A \A 231: \A 232: /* rem和px的转换\A 233:    ========================================================================== */\A 234: @mixin o-px-rem($pxValue){\A 235:     $remValue: ($pxValue / 10);\A 236:     font-size: ${pxValue}px;\A 237:     font-size: ${remValue}rem;\A 238: }"; }
