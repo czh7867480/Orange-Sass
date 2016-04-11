@@ -228,11 +228,3 @@ $color) {
 }
 /* Usage */
 //.my-element{@include o-placement(relative,10px,20px,30px,40px)}
-
-/* rem和px的转换
-   ========================================================================== */
-@mixin o-px-rem($pxValue){
-    $remValue: ($pxValue / 10);
-    font-size: ${pxValue}px;
-    font-size: ${remValue}rem;
-}
